@@ -16,6 +16,10 @@ async function main() {
   await prisma.$connect()
   const port = process.env.PORT || 3000;
 
+  app.get("/", async(_req, res) => {
+    res.send("<h5>Welcome to Inovax API</h5>")
+  })
+
   // Get all tasks
   app.get("/tasks", async (req, res) => {
     try {
