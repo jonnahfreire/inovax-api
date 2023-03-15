@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-import { PrismaClient } from '@prisma/client'
+const PrismaClient = require('@prisma/client').PrismaClient
 const express = require("express")
 const cors = require("cors")
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 async function main() {
   await prisma.$connect()
   const port = process.env.PORT || 3000;
-  
+
   app.get("/", async(_req, res) => {
     res.send("<h5>Welcome to Inovax API</h5>")
   })
